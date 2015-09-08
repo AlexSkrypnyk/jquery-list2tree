@@ -1,0 +1,11 @@
+dependencies:
+  override:
+    - npm install
+    - npm install grunt-cli
+    - npm install bower
+    - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+    - bower install -f
+
+test:
+  override:
+  - grunt --verbose
