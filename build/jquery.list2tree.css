@@ -1,0 +1,42 @@
+/**
+ * list2tree jQuery plugin
+ * jQuery plugin for converting flat item list to collapsible tree
+ *
+ * Version: 0.0.1
+ * Author: Alex Skrypnyk (alex.designworks@gmail.com)
+ * License: GPL-2.0
+ */
+
+.tree .leaf-depth-0 {
+  margin-left: 0;
+}
+
+.tree .leaf-depth-1 {
+  margin-left: 1em;
+}
+
+.tree .leaf-depth-2 {
+  margin-left: 2em;
+}
+
+.tree .leaf-depth-3 {
+  margin-left: 3em;
+}
+
+.tree .leaf-depth-4 {
+  margin-left: 4em;
+}
+
+.tree .trigger-expanded {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: red;
+}
+
+.tree .trigger-collapsed {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: blue;
+}

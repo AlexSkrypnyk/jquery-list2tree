@@ -1,66 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Test Suite</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Test Suite</title>
 
   <!--QUnit test framework-->
-  <link rel="stylesheet" media="screen" href="../bower_components/qunit/qunit/qunit.css" />
-	<script src="../bower_components/qunit/qunit/qunit.js"></script>
+  <link rel="stylesheet" media="screen" href="../bower_components/qunit/qunit/qunit.css"/>
+  <script src="../bower_components/qunit/qunit/qunit.js"></script>
 
   <!--Test helpers-->
-	<link rel="stylesheet" media="screen" href="testinit.css" />
   <script src="testinit.js"></script>
+  <link rel="stylesheet" media="screen" href="testinit.css"/>
 
   <!--Required libraries-->
-  <!--Polyfill to run tests in PhantomJS <2.0-->
-  <script src="../bower_components/bind-polyfill/index.js"></script>
   <!--Library for simulating user entry-->
-	<script src="../bower_components/jquery-simulate-ext/libs/bililiteRange.js"></script>
-	<script src="../bower_components/jquery-1.7.2/jquery.js"></script>
+  <script src="../bower_components/jquery-1.10.2/jquery.js"></script>
   <!--Libraries for simulating user entry-->
-	<script src="../bower_components/jquery-simulate-ext/libs/jquery.simulate.js"></script>
-	<script src="../bower_components/jquery-simulate-ext/src/jquery.simulate.ext.js"></script>
-	<script src="../bower_components/jquery-simulate-ext/src/jquery.simulate.key-sequence.js"></script>
-  <!--Required dependency-->
-  <script src="../bower_components/jquery-observe/jquery-observe.js"></script>
+  <script src="../bower_components/jquery-simulate-ext/libs/bililiteRange.js"></script>
+  <script src="../bower_components/jquery-simulate-ext/libs/jquery.simulate.js"></script>
+  <script src="../bower_components/jquery-simulate-ext/src/jquery.simulate.ext.js"></script>
 
   <!--Testable files-->
-	<script src="../src/jquery.list2tree.js"></script>
+  <script src="../src/jquery.list2tree.js"></script>
+  <link rel="stylesheet" media="screen" href="../src/jquery.list2tree.css"/>
 
   <!--Files with tests-->
-	<script src="unit/test.js"></script>
+  <script src="unit/test.js"></script>
 </head>
 <body id="body">
-	<h1 id="qunit-header">Test Suite</h1>
-	<h2 id="qunit-banner"></h2>
-	<div id="qunit-testrunner-toolbar"></div>
-	<h2 id="qunit-userAgent"></h2>
-	<ol id="qunit-tests"></ol>
-  <!--Change id of #quint-fixture to preserve linkage between tests-->
-	<div id="qunit-fixture" class="qunit-fixture visible">
-    <form action="">
-      <input id="text1" name="text1" type="text"/>
-      <input id="text2" name="text2" type="text"/>
-      <input id="text3" name="text3" type="text"/>
-      <input id="text4" name="text4" type="text"/>
-      <input id="text5" name="text5" type="text"/>
-      <input id="text6" name="text6" type="text"/>
-      <input id="text7" name="text7" type="text"/>
-      <input id="text8" name="text8" type="text"/>
-      <input id="text9" name="text9" type="text"/>
-      <input id="text10" name="text10" type="text"/>
-    </form>
-    <div id="container1"></div>
-    <div id="container2"></div>
-    <div id="container3"></div>
-    <div id="container4"></div>
-    <div id="container5"></div>
-    <div id="container6"></div>
-    <div id="container7"></div>
-    <div id="container8"></div>
-    <div id="container9"></div>
-    <div id="container10"></div>
-  </div>
+<h1 id="qunit-header">Test Suite</h1>
+<h2 id="qunit-banner"></h2>
+<div id="qunit-testrunner-toolbar"></div>
+<h2 id="qunit-userAgent"></h2>
+<ol id="qunit-tests"></ol>
+<!--Change id of #quint-fixture to preserve linkage between tests-->
+<div id="qunit-fixture" class="qunit-fixture visible">
+  <form action="">
+    <div class="js-tree tree">
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-1" name="leaf[1]" value="1"><label for="leaf-1">Level1</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-11" name="leaf[11]" value="11"><label for="leaf-11">-Level11</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-12" name="leaf[12]" value="12"><label for="leaf-12">-Level12</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-2" name="leaf[2]" value="2"><label for="leaf-2">Level2</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-21" name="leaf[21]" value="21"><label for="leaf-21">-Level21</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-22" name="leaf[22]" value="22"><label for="leaf-22">-Level22</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-221" name="leaf[221]" value="221"><label for="leaf-221">--Level221</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-222" name="leaf[222]" value="222"><label for="leaf-222">--Level222</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-2221" name="leaf[2221]" value="2221"><label for="leaf-2221">---Level2221</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-2222" name="leaf[2222]" value="2222"><label for="leaf-2222">---Level2222</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-2223" name="leaf[2223]" value="2223"><label for="leaf-2223">---Level2223</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-223" name="leaf[223]" value="223"><label for="leaf-223">--Level223</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-23" name="leaf[23]" value="23"><label for="leaf-23">-Level23</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-3" name="leaf[3]" value="3"><label for="leaf-3">Level3</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-31" name="leaf[31]" value="31"><label for="leaf-31">-Level31</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-32" name="leaf[32]" value="32"><label for="leaf-32">-Level32</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-33" name="leaf[33]" value="33"><label for="leaf-33">-Level33</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-4" name="leaf[4]" value="4"><label for="leaf-4">Level4</label>
+      </div>
+      <div class="js-list2tree-leaf leaf">
+        <input type="checkbox" id="leaf-5" name="leaf[5]" value="5"><label for="leaf-5">Level5</label>
+      </div>
+    </div>
+  </form>
+
+</div>
 </body>
 </html>
