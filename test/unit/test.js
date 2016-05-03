@@ -388,4 +388,27 @@
     assert.leafVisible(childSiblingId1);
     assert.leafVisible(childSiblingId2);
   });
+
+  test('Checked leaf expands the tree to become visible', function (assert) {
+    $('#leaf-2222').attr('checked', 'checked');
+    $('.js-tree').list2tree({
+      state: 'collapsed'
+    });
+
+    var childId = 'leaf-2222';
+    var parentId1 = 'leaf-222';
+    var parentSiblingId1 = 'leaf-221';
+    var parentId2 = 'leaf-22';
+    var parentSiblingId2 = 'leaf-21';
+    var parentId3 = 'leaf-2';
+    var parentSiblingId3 = 'leaf-3';
+
+    assert.leafVisible(childId);
+    assert.leafExpanded(parentId1);
+    assert.leafVisible(parentSiblingId1);
+    assert.leafExpanded(parentId2);
+    assert.leafVisible(parentSiblingId2);
+    assert.leafExpanded(parentId3);
+    assert.leafVisible(parentSiblingId3);
+  });
 }());

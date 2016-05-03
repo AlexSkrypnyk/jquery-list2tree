@@ -56,12 +56,15 @@
       }
 
       // Attach triggers to all parents.
-      self.getAllParents().each(function () {
+      self.getParents().each(function () {
         var $trigger = self.attachTrigger($(this));
         if (self.options.state === self.STATE_COLLAPSED) {
           $trigger.trigger('click');
         }
       });
+
+      // Process checked values.
+      self.processCheckedValues();
     },
     attachTrigger: function ($leaf) {
       var self = this;
@@ -131,6 +134,19 @@
       this.getChildrenAll($leaf).hide();
       $leaf.addClass(this.CLASS_LEAF_COLLAPSED);
     },
+    processCheckedValues: function () {
+      var self = this;
+      var $checkedLeaves = self.getLeaves().filter(function () {
+        return self.isChecked($(this));
+      });
+      $checkedLeaves.each(function () {
+        $(self.getParentsAll($(this)).get().reverse()).each(function () {
+          if (self.isCollapsed($(this))) {
+            self.getTrigger($(this)).trigger('click');
+          }
+        });
+      });
+    },
     isChecked: function ($el) {
       return $el.find('input[type="checkbox"]').is(':checked');
     },
@@ -146,8 +162,6 @@
     removePrefixes: function () {
       var self = this;
       this.getLeaves().each(function () {
-        // console.log($(this));
-        // $(this).css('border', 'solid 1px red');
         var string = self.getText($(this));
         while (string.indexOf(self.options.prefix) === 0) {
           string = string.substr(self.options.prefix.length);
@@ -159,7 +173,7 @@
       return this.$element.find(this.options.leafSelector);
     },
     // Get all parent elements that have children.
-    getAllParents: function () {
+    getParents: function () {
       var self = this;
       return self.getLeaves().filter(function () {
         return self.isParent($(this));
@@ -196,6 +210,24 @@
       }
 
       return $children;
+    },
+    // Get all parents with grand parents etc.
+    getParentsAll: function ($el) {
+      var self = this;
+      var $parents = $();
+      var depth = self.getDepth($el);
+      var $sibling = $el.prev();
+
+      while ($sibling.length > 0) {
+        var siblingDepth = self.getDepth($sibling);
+        if (siblingDepth < depth) {
+          $parents = $parents.add($sibling);
+          depth = siblingDepth;
+        }
+        $sibling = $sibling.prev();
+      }
+
+      return $parents;
     },
     getDepth: function ($el) {
       var depth = 0;
