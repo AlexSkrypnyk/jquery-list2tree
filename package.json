@@ -15,7 +15,7 @@
   "bugs": "https://github.com/alexdesignworks/jquery-list2tree/issues",
   "license": "GPL-2.0",
   "devDependencies": {
-    "grunt": "1.0.0",
+    "grunt": "1.0.1",
     "grunt-bowercopy": "1.2.4",
     "grunt-compare-size": "0.4.2",
     "grunt-contrib-connect": "1.0.2",
