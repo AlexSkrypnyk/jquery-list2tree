@@ -1,4 +1,15 @@
-languages:
-  JavaScript: true
+engines:
+  csslint:
+    enabled: true
+  duplication:
+    enabled: enabled
+    config:
+      languages:
+      - javascript
+  eslint:
+    enabled: true
+    checks:
+      max-statements:
+        enabled: false
 exclude_paths:
-- "build/*"
+- "build/**/*"
