@@ -23,8 +23,8 @@ module.exports = function (grunt) {
     src: 'src',
     // Build files location.
     build: 'build',
-    // Array of utility files that are not a part of distribution, but should also
-    // be processed (linted etc.).
+    // Array of utility files that are not a part of distribution, but should
+    // also be processed (linted etc.).
     utilFiles: [
       'Gruntfile.js',
       'test/*.js',
@@ -37,9 +37,13 @@ module.exports = function (grunt) {
   // Expand app files from source dir if they were not specified in config.
   config.appFiles = config.appFiles || grunt.file.expand(config.src + '/*');
   // Define output filename as a first available file, or 'app' if no files.
-  config.outputName = (config.outputName || config.appFiles[0].replace(config.src + '/', '').replace('.js', '') + '.js' || 'app.js');
+  config.outputName = (config.outputName || config.appFiles[0].replace(config.src + '/', '').replace('.js', '').replace('.css', '') || 'app');
   // Merge all files.
   config.files = config.utilFiles.concat(config.appFiles);
+  // All JS files.
+  config.filesJs = config.files.filter(function (value) {
+    return value.substr(value.length - '.js'.length) === '.js';
+  });
 
   // Load requried tasks.
   grunt.loadNpmTasks('grunt-bowercopy');
@@ -61,7 +65,7 @@ module.exports = function (grunt) {
         jshintrc: true
       },
       // Run on all files.
-      all: config.files
+      all: config.filesJs
     },
 
     // Use 'connect plugin' to start ad-hoc server for tasks like qunit.
@@ -113,9 +117,15 @@ module.exports = function (grunt) {
         files: [
           {
             src: [
-              config.src + '/*'
+              config.src + '/*.js'
             ],
-            dest: config.build + '/' + config.outputName
+            dest: config.build + '/' + config.outputName + '.js'
+          },
+          {
+            src: [
+              config.src + '/*.css'
+            ],
+            dest: config.build + '/' + config.outputName + '.css'
           }
         ]
       }
@@ -126,10 +136,12 @@ module.exports = function (grunt) {
         banner: '/* <%= pkg.title %> v.<%= pkg.version %> <%= pkg.homepage %> | License: <%= pkg.license %> */'
       },
       build: {
-        files: [{
-          src: config.build + '/*.js',
-          dest: config.build + '/' + config.outputName.replace('.js', '.min.js')
-        }]
+        files: [
+          {
+            src: config.build + '/*.js',
+            dest: config.build + '/' + config.outputName + '.min.js'
+          }
+        ]
       }
     },
 
