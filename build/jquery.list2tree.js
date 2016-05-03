@@ -202,10 +202,12 @@
       var re = new RegExp(this.CLASS_DEPTH + '-([0-9]+)', 'i');
       var classes = $el.attr('class').split(' ');
       for (var i in classes) {
-        var match = classes[i].match(re);
-        if (match && match.length > 1) {
-          depth = parseInt(match[1], 10);
-          break;
+        if (classes.hasOwnProperty(i)) {
+          var match = classes[i].match(re);
+          if (match && match.length > 1) {
+            depth = parseInt(match[1], 10);
+            break;
+          }
         }
       }
       return depth;

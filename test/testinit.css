@@ -32,29 +32,3 @@
 .qunit-fixture form {
   margin-bottom: 20px;
 }
-
-.qunit-fixture [id^="text"] {
-  display: block;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-.qunit-fixture [id^="container"] {
-  position: relative;
-  background: #fafafa;
-  min-width: 100px;
-  min-height: 25px;
-  margin-top: 5px;
-}
-
-.qunit-fixture [id^="container"]:first-child {
-  margin-top: 20px;
-}
-
-.qunit-fixture [id^="container"]:after {
-  position: absolute;
-  right: 10px;
-  top: 3px;
-  content: 'container';
-  color: #eaeaea;
-}
