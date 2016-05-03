@@ -6,4 +6,4 @@
     // Let QUnit reset the fixture.
     reset.apply(this, arguments);
   };
-})();
+}());

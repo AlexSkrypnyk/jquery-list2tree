@@ -7,9 +7,9 @@
  * License: @@license
  */
 
-;(function ($, window, document, undefined) {
+(function ($) {
   var pluginName = 'list2tree',
-    version = '0.0.1';
+    version = '@@version';
 
   function Plugin(element, options) {
     this.name = pluginName;
@@ -204,7 +204,7 @@
       for (var i in classes) {
         var match = classes[i].match(re);
         if (match && match.length > 1) {
-          depth = parseInt(match[1]);
+          depth = parseInt(match[1], 10);
           break;
         }
       }
@@ -237,4 +237,4 @@
     });
   };
 
-}(jQuery, window));
+}(jQuery));

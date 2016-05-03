@@ -14,7 +14,7 @@
     triggerCollapsed: 'js-list2tree-trigger-collapsed',
     triggerCollapsedCss: 'trigger-collapsed',
     triggerExpanded: 'js-list2tree-trigger-expanded',
-    triggerExpandedCss: 'trigger-collapsed',
+    triggerExpandedCss: 'trigger-collapsed'
   };
 
   function getLeafById(id) {

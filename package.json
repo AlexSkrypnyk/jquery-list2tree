@@ -2,7 +2,7 @@
   "name": "jquery-list2tree",
   "title": "list2tree jQuery plugin",
   "description": "jQuery plugin for converting flat item list to collapsible tree",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "homepage": "https://github.com/alexdesignworks/jquery-list2tree",
   "author": {
     "name": "Alex Skrypnyk",
