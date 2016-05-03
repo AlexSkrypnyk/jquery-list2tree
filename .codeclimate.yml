@@ -5,11 +5,17 @@ engines:
     enabled: enabled
     config:
       languages:
-      - javascript
+        javascript:
+          mass_threshold: 50
+  csslint:
+    enabled: true
   eslint:
     enabled: true
     checks:
       max-statements:
         enabled: false
+ratings:
+  paths:
+    - "src/**"
 exclude_paths:
 - "build/**/*"
