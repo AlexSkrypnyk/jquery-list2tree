@@ -29,14 +29,20 @@
 
 .tree .trigger-expanded {
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  background: red;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 4px 0 4px;
+  border-color: black transparent transparent transparent;
 }
 
 .tree .trigger-collapsed {
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  background: blue;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 0 4px 6px;
+  border-color: transparent transparent transparent black;
 }
